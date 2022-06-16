@@ -11,7 +11,7 @@ void instruct_mul(stack_t **stack unsigned int line_number)
 {
 	int *tmp;
 
-	if(var. < 2)
+	if(var.stack_len < 2)
 	{
 		printf("L%u: can't mul, stack too short", line_number);
 		exit(EXIT_FAILURE);
@@ -20,3 +20,4 @@ void instruct_mul(stack_t **stack unsigned int line_number)
 	tmp = (*stack)->n;
 	instruct_pop(stack, line_number);
 	(*stack)->n *= tmp;
+}
