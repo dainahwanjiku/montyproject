@@ -1,12 +1,11 @@
 #include "monty.h"
 
-
 /**
  * push - pushes the element to stack
  * @stack: double pointer to the first node
  * @line_number: value of new node
  *
- * Return: (0)
+ * Return: void
  */
 void instruct_push(stack_t **stack, unsigned int line_number)
 {
