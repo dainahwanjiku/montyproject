@@ -19,6 +19,25 @@
 #define FALSE 0
 #define DELIMS "\n \t\r"
 
+
+/**
+ * struct var_s - struct to contain the main variables of the Monty interpreter
+ * @queue: flag to determine if in stack vs queue mode
+ * @stack_len: length of the stack
+ */
+typedef struct var_s
+{
+	int queue;
+	size_t stack_len;
+} var_t;
+
+#define STACK 0
+#define QUEUE 1
+
+/* global struct to hold flag for queue and stack length */
+extern var_t var;
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
