@@ -7,7 +7,7 @@
  *
  * Return: void
  */
-void instruct_pop(stack_t **stack, unsigned int line_number)
+void op_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pop = *stack;
 
