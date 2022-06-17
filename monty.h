@@ -9,6 +9,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <ctype.h>
+
+
+#define UNUSED(x) (void)(x)
+#define TRUE 1
+#define FALSE 0
+#define DELIMS "\n \t\r"
+
+
 /**
  * struct var_s - struct to contain the main variables of the Monty interpreter
  * @queue: flag to determine if in stack vs queue mode
@@ -56,6 +64,14 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+/*helper_file.c */
+int process_file(char *filename, stack_t **stack);
+
+/*helper_file2.c */
+void delegate_op(stack_t **stack, char *op, unsigned int line_number);
+
+
 void delegate_op(char *op, stack_t **stack, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_push2(stack_t **stack, int n);
@@ -79,5 +95,11 @@ void free_stack(int status, void *arg);
 void m_fs_close(int status, void *arg);
 void free_lineptr(int status, void *arg);
 stack_t *add_node(stack_t **stack, const int n);
+
+
+/* _strtol.c */
+int is_leading_digit(char ascii_char);
+int _strtol(char *num_string, unsigned int line_number);
+
 
 #endif
