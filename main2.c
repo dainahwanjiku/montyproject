@@ -1,52 +1,47 @@
 #include "monty.h"
 
-glob_t glob;
+/* global struct to hold flag for queue and stack length */
+var_t var;
 
 /**
- * stack_init - initialize all the things
- * @head: top of stack data structure
- **/
-void stack_init(stack_t **head)
+ * main - Monty bytecode interpreter
+ * @argc: number of arguments passed
+ * @argv: array of argument strings
+ *
+ * Return: EXIT_SUCCESS on success or EXIT_FAILURE on failure
+ */
+int main(int argc, char *argv[])
 {
-	*head = NULL;
-	glob.top = head;
-}
+	stack_t *stack = NULL;
+	unsigned int line_number = 0;
+	FILE *fs = NULL;
+	char *lineptr = NULL, *op = NULL;
+	size_t n = 0;
 
-/**
- * free_all - free all malloc'ed memory
- *     note: this is available "atexit", starting at
- *           getline loop
- **/
-void free_all(void)
-{
-	stack_t *tmp1, *tmp2 = NULL;
-
-	tmp1 = *(glob.top);
-	/* printf("glob.top->%p\n",  (void*)glob.top); */
-	while (tmp1 != NULL)
-	{
-		tmp2 = tmp1->next;
-		free(tmp1);
-		tmp1 = tmp2;
-	}
-}
-
-/**
- * main - monty bytecode interpreter
- * @argc: number of command line arguments
- * @argv: array of strings containing the comm line args
- * Return: EXIT_SUCCESS or EXIT_FAILURE!!!
- **/
-int main(int argc, char **argv)
-{
-	stack_t *head;
-
-	stack_init(&head);
+	var.queue = 0;
+	var.stack_len = 0;
 	if (argc != 2)
 	{
-		printf("USAGE: monty file\n");
+		dprintf(STDOUT_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	process_file(argv[1], &head);
+	fs = fopen(argv[1], "r");
+	if (fs == NULL)
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	on_exit(free_lineptr, &lineptr);
+	on_exit(free_stack, &stack);
+	on_exit(m_fs_close, fs);
+	while (getline(&lineptr, &n, fs) != -1)
+	{
+		line_number++;
+		op = strtok(lineptr, "\n\t\r ");
+		if (op != NULL && op[0] != '#')
+		{
+			get_op(op, &stack, line_number);
+		}
+	}
 	exit(EXIT_SUCCESS);
 }

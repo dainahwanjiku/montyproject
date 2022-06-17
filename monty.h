@@ -1,5 +1,5 @@
-#ifndef _MONTY_H_
-#define _MONTY_H_
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,6 +9,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <ctype.h>
+
+
 /**
  * struct var_s - struct to contain the main variables of the Monty interpreter
  * @queue: flag to determine if in stack vs queue mode
@@ -56,28 +58,30 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void get_op(char *op, stack_t **stack, unsigned int line_number);
-void push(stack_t **stack, unsigned int line_number);
-void push2(stack_t **stack, int n);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void mul(stack_t **stack, unsigned int line_number);
-void div(stack_t **stack, unsigned int line_number);
-void mod(stack_t **stack, unsigned int line_number);
-void rotl(stack_t **stack, unsigned int line_number);
-void rotr(stack_t **stack, unsigned int line_number);
-void stack(stack_t **stack, unsigned int line_number);
-void queue(stack_t **stack, unsigned int line_number);
-void pchar(stack_t **stack, unsigned int line_number);
-void pstr(stack_t **stack, unsigned int line_number);
+void delegate_op(char *op, stack_t **stack, unsigned int line_number);
+void op_push(stack_t **stack, unsigned int line_number);
+void op_push2(stack_t **stack, int n);
+void op_pall(stack_t **stack, unsigned int line_number);
+void op_pint(stack_t **stack, unsigned int line_number);
+void op_pop(stack_t **stack, unsigned int line_number);
+void op_swap(stack_t **stack, unsigned int line_number);
+void op_add(stack_t **stack, unsigned int line_number);
+void op_nop(stack_t **stack, unsigned int line_number);
+void op_sub(stack_t **stack, unsigned int line_number);
+void op_mul(stack_t **stack, unsigned int line_number);
+void op_div(stack_t **stack, unsigned int line_number);
+void op_mod(stack_t **stack, unsigned int line_number);
+void op_rotl(stack_t **stack, unsigned int line_number);
+void op_rotr(stack_t **stack, unsigned int line_number);
+void op_stack(stack_t **stack, unsigned int line_number);
+void op_queue(stack_t **stack, unsigned int line_number);
+void op_pchar(stack_t **stack, unsigned int line_number);
+void op_pstr(stack_t **stack, unsigned int line_number);
 void free_stack(int status, void *arg);
 void m_fs_close(int status, void *arg);
 void free_lineptr(int status, void *arg);
 stack_t *add_node(stack_t **stack, const int n);
+int _strtol(char *num_string, unsigned int line_number);
+
 
 #endif
