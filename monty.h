@@ -57,11 +57,8 @@ typedef struct glob_s
 	instruction_t **ops;
 } glob_t;
 
-#define STACK 0
-#define QUEUE 1
 
 extern glob_t glob;
-extern var_t var;
 
 /* main2.c */
 void stack_init(stack_t **head);
