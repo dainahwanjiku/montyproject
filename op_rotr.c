@@ -5,7 +5,7 @@ include "monty.h"
  * @stack: double pointer to top of stack
  * @line_number: what line in the monty bytecode file are we at?
  **/
-void instruct_rotr(stack_t **stack, unsigned int line_number)
+void op_rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
 
