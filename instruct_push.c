@@ -25,7 +25,7 @@ void instruct_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	num = _strtol(op, line_number);
-	element->n = num;
+	element->n = num; /* linked list used here */
 	element->prev = null;
 	element->next = *stack;
 	if (element->next != NULL)
