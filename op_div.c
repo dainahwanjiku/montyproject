@@ -26,4 +26,3 @@ void instruct_div(stack_t **stack, unsigned int line_number)
 	instruct_pop(stack, line_number);
 	(*stack)->n /= tmp;
 }
-
