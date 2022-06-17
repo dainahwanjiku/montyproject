@@ -1,7 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,6 +18,8 @@
 #define FALSE 0
 #define DELIMS "\n \t\r"
 
+#define STACK 0
+#define QUEUE 1
 
 /**
  * struct var_s - struct to contain the main variables of the Monty interpreter
@@ -30,9 +31,6 @@ typedef struct var_s
 	int queue;
 	size_t stack_len;
 } var_t;
-
-#define STACK 0
-#define QUEUE 1
 
 /* global struct to hold flag for queue and stack length */
 extern var_t var;
@@ -69,7 +67,6 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
 void instruct_push(stack_t **stack, unsigned int line_number);
 void instruct_pall(stack_t **stack, unsigned int line_number);
 void instruct_pint(stack_t **stack, unsigned int line_number);
@@ -90,6 +87,5 @@ void instruct_pstr(stack_t **stack, unsigned int line_number);
 
 int is_leading_digit(char ascii_char);
 int _strtol(char *num_string, unsigned int line_number);
-
 
 #endif
