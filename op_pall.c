@@ -7,13 +7,13 @@
  *
  * Return: void
  */
-void instruct_pall(stack_t **stack, unsigned int line_number)
+void op_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head;
 	
 	(void)(line_number);
 
-	heaad = *stack;
+	head = *stack;
 	while (head != NULL)
 	{
 		printf("%d\n", head->n);

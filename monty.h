@@ -1,5 +1,5 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef _MONTY_H_
+#define _MONTY_H_
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,8 +9,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <ctype.h>
-
-
 /**
  * struct var_s - struct to contain the main variables of the Monty interpreter
  * @queue: flag to determine if in stack vs queue mode
@@ -81,7 +79,5 @@ void free_stack(int status, void *arg);
 void m_fs_close(int status, void *arg);
 void free_lineptr(int status, void *arg);
 stack_t *add_node(stack_t **stack, const int n);
-int _strtol(char *num_string, unsigned int line_number);
-
 
 #endif

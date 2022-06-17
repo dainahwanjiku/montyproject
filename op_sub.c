@@ -8,7 +8,7 @@
  *
  * Return: void
  */
-void instruct_sub(stack_t **stack, unsigned int line_number)
+void op_sub(stack_t **stack, unsigned int line_number)
 {
 	int *tmp;
 	if(var.stack_len < 2)
