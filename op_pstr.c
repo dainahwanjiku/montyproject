@@ -7,7 +7,7 @@
  *
  * Return: void
  */
-void instruct_pstr(stack_t **stack, unsigned int line_number)
+void op_pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 	int ch;
