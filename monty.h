@@ -93,13 +93,13 @@ void op_pchar(stack_t **stack, unsigned int line_number);
 void op_pstr(stack_t **stack, unsigned int line_number);
 void free_stack(int status, void *arg);
 void m_fs_close(int status, void *arg);
-void free_lineptr(int status, void *arg);
 stack_t *add_node(stack_t **stack, const int n);
-
+/* linepointer.c */
+void free_lineptr(int status, void *arg);
 
 /* _strtol.c */
 int is_leading_digit(char ascii_char);
 int _strtol(char *num_string, unsigned int line_number);
-
+void free_lineptr(int status, void *arg)
 
 #endif
