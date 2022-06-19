@@ -12,9 +12,7 @@
 
 
 #define UNUSED(x) (void)(x)
-#define TRUE 1
-#define FALSE 0
-#define DELIMS "\n \t\r"
+
 
 
 /**
