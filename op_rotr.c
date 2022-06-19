@@ -1,7 +1,7 @@
 include "monty.h"
 
 /**
- * instruction_rotr - all elements rotate right, bottom element becomes first
+ * op_rotr - all elements rotate right, bottom element becomes first
  * @stack: double pointer to top of stack
  * @line_number: what line in the monty bytecode file are we at?
  **/

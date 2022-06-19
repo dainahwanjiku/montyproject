@@ -1,14 +1,14 @@
 #include "monty.h"
 
 /**
- * instruct_div - divides the second top element of the stack
+ * op_div - divides the second top element of the stack
  *                by the top element of the stack
  * @stack: double pointer to the beginning of the 
  * @line_number: 
  *
  * Return: void
  */
-void instruct_div(stack_t **stack, unsigned int line_number)
+void op_div(stack_t **stack, unsigned int line_number)
 {
 	int *tmp;
 
@@ -23,6 +23,6 @@ void instruct_div(stack_t **stack, unsigned int line_number)
 		printf("L%u: division by zero\n", line_number);
 		exit(EXIT_FAILURE)
 	}
-	instruct_pop(stack, line_number);
+	op_pop(stack, line_number);
 	(*stack)->n /= tmp;
 }
