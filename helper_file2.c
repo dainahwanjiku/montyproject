@@ -31,7 +31,7 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number)
 		{NULL, NULL}
 	};
 
-	for (i = 0; all_ops[i].opcode; i++)
+	for (i = 0; all_ops[i].opcode != NULL; i++)
 	{
 		if (strcmp(op, all_ops[i].opcode) == 0)
 		{
@@ -39,9 +39,7 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number)
 			return;
 		}
 	}
-	if (strlen(op) != 0 && op[0] != '#')
-	{
-		printf("L%u: unknown instruction %s\n", line_number, op);
-		exit(EXIT_FAILURE);
-	}
+	
+	printf("L%u: unknown instruction %s\n", line_number, op);
+	exit(EXIT_FAILURE);
 }
