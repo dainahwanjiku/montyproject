@@ -7,7 +7,7 @@
  *
  * Return: void
  */
-void pint_op(stack_t **stack, unsigned int line_number)
+void op_pint(stack_t **stack, unsigned int line_number)
 {
 	if(stack == NULL || *stack == NULL)
 	{
