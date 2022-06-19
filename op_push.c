@@ -7,7 +7,7 @@
  *
  * Return: void
  */
-void push_op(stack_t **stack, unsigned int line_number)
+void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *element = malloc(sizeof(stack_t));
 	char *op;
