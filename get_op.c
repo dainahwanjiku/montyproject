@@ -11,10 +11,10 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number)
 {
 	int i = 0;
 	instruction_t all_ops[] = {
-		{"push", push_op},
-		{"pall", pall_op},
-		{"pint", pint_op},
-		{"pop",  pop_op},
+		{"push", op_push},
+		{"pall", op_pall},
+		{"pint", op_pint},
+		{"pop",  op_pop},
 		{"swap", op_swap},
 		{"add", op_add},
 		{"nop", op_nop},
