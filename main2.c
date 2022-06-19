@@ -31,8 +31,8 @@ int main(int argc, char *argv[])
 		dprintf(STDOUT_FILENO, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	on_exit(free_lineptr, &lineptr);
-	on_exit(free_stack, &stack);
+	on_exit(free-lineptr, &lineptr);
+	on_exit(free-stack, &stack);
 	on_exit(fs_close, fs);
 	while (getline(&lineptr, &n, fs) != -1)
 	{
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		op = strtok(lineptr, "\n\t\r ");
 		if (op != NULL && op[0] != '#')
 		{
-			get_op(op, &stack, line_number);
+			delegate_op(op, &stack, line_number);
 		}
 	}
 	exit(EXIT_SUCCESS);
