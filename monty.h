@@ -68,9 +68,6 @@ typedef struct instruction_s
 /*helper_file.c */
 int process_file(char *filename, stack_t **stack);
 
-/*helper_file2.c */
-void delegate_op(stack_t **stack, char *op, unsigned int line_number);
-
 
 void delegate_op(char *op, stack_t **stack, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
@@ -94,7 +91,6 @@ void op_pstr(stack_t **stack, unsigned int line_number);
 void free_stack(int status, void *arg);
 void m_fs_close(int status, void *arg);
 stack_t *add_node(stack_t **stack, const int n);
-/* linepointer.c */
 void free_lineptr(int status, void *arg);
 
 /* _strtol.c */
