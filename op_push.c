@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * op_push - pushes the element to stack
+ * push - pushes the element to stack
  * @stack: double pointer to the first node
  * @line_number: value of new node
  *
  * Return: void
  */
-void op_push(stack_t **stack, unsigned int line_number)
+void push_op(stack_t **stack, unsigned int line_number)
 {
 	stack_t *element = malloc(sizeof(stack_t));
 	char *op;
