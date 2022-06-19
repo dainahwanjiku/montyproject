@@ -1,14 +1,13 @@
 #include "monty.h"
 
-
 /**
- * instruct_add - adds the top two elements of the stack.
+ * op_add - adds the top two elements of the stack.
  * @stack: double pointer to top of stack
  * @line_number: value of node
  *
  * Return: 0
  */
-void instruct_add(stack_t stack**, unsigned int line_number)
+void op_add(stack_t **stack, unsigned int line_number)
 {
 	int tmp;
 
@@ -18,6 +17,6 @@ void instruct_add(stack_t stack**, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack)->n;
-	instruct_pop(stack, line_number);
+	op_pop(stack, line_number);
 	(*stack)->n += tmp;
 }
